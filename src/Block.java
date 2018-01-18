@@ -3,19 +3,25 @@ import com.google.gson.Gson;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 
 /**
  * Created by shion on 2018/01/15.
  */
 public class Block {
 
-    private String hash;
-    private String previousHash;
+    private int index;
     private long timeStamp;
+    private ArrayList<Transaction> transactions;
+    private String proof;
+    private String previousHash;
 
-    public Block(String previousHash, long timeStamp) {
-        this.previousHash = previousHash;
+    public Block(int index, long timeStamp, ArrayList<Transaction> transactions, String proof, String previousHash) {
+        this.index = index;
         this.timeStamp = timeStamp;
+        this.transactions = transactions;
+        this.proof = proof;
+        this.previousHash = previousHash;
     }
 
     public String toString() {
