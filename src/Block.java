@@ -13,10 +13,10 @@ public class Block {
     private int index;
     private long timeStamp;
     private ArrayList<Transaction> transactions;
-    private String proof;
+    private int proof;
     private String previousHash;
 
-    public Block(int index, long timeStamp, ArrayList<Transaction> transactions, String proof, String previousHash) {
+    public Block(int index, long timeStamp, ArrayList<Transaction> transactions, int proof, String previousHash) {
         this.index = index;
         this.timeStamp = timeStamp;
         this.transactions = transactions;
