@@ -25,7 +25,7 @@ public class Block {
         return new Gson().toJson(this).toString();
     }
 
-    public static String hash(Block block) {
+    public String hash(Block block) {
         return Utils.applySHA256(block.toString());
     }
 }
