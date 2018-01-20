@@ -20,4 +20,8 @@ public class Blockchain {
         chain.add(block);
         transactions.clear();
     }
+
+    public void newTransaction(String sender, String recipient, long amount) {
+        transactions.add(new Transaction(sender, recipient, amount));
+    }
 }
