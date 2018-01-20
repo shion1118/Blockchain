@@ -30,6 +30,10 @@ public class Blockchain {
         return chain.get(chain.size() - 1);
     }
 
+    public ArrayList<Block> getChain() {
+        return chain;
+    }
+
     public int calculatePoW(int previousProof) {
         int proof = 0;
         while(!validProof(previousProof, proof)) {
