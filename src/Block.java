@@ -25,6 +25,14 @@ public class Block {
         return new Gson().toJson(this).toString();
     }
 
+    public int getProof() {
+        return proof;
+    }
+
+    public String getPreviousHash() {
+        return previousHash;
+    }
+
     public String hash() {
         return Utils.applySHA256(this.toString());
     }
