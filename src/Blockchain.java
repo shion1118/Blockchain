@@ -44,4 +44,21 @@ public class Blockchain {
         return guess.substring(0, difficulty).equals(target);
     }
 
+    public boolean validChain() {
+        Block previousBlock, currentBlock;
+        for (int i = 1; i < chain.size(); i++) {
+            previousBlock = chain.get(i-1);
+            currentBlock = chain.get(i);
+
+            if (!currentBlock.getPreviousHash().equals(previousBlock.hash())) {
+                return false;
+            }
+
+            if (!validProof(previousBlock.getProof(), currentBlock.getProof())) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
