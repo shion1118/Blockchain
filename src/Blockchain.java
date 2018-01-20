@@ -5,6 +5,7 @@ import java.util.ArrayList;
  */
 public class Blockchain {
 
+    private int difficulty = 1;
     private ArrayList<Transaction> transactions;
     private ArrayList<Block> chain;
 
@@ -24,4 +25,23 @@ public class Blockchain {
     public void newTransaction(String sender, String recipient, long amount) {
         transactions.add(new Transaction(sender, recipient, amount));
     }
+
+    public Block getLastBlock() {
+        return chain.get(chain.size() - 1);
+    }
+
+    public int calculatePoW(int previousProof) {
+        int proof = 0;
+        while(!validProof(previousProof, proof)) {
+            proof += 1;
+        }
+        return proof;
+    }
+
+    public boolean validProof(int previousProof, int proof) {
+        String target = new String(new char[difficulty]).replace('\0', '0');
+        String guess = Utils.applySHA256(String.valueOf(previousProof * proof));
+        return guess.substring(0, difficulty).equals(target);
+    }
+
 }
