@@ -16,13 +16,17 @@ public class Block {
     public Block(int index, long timeStamp, ArrayList<Transaction> transactions, int proof, String previousHash) {
         this.index = index;
         this.timeStamp = timeStamp;
-        this.transactions = transactions;
+        this.transactions = (ArrayList<Transaction>) transactions.clone();
         this.proof = proof;
         this.previousHash = previousHash;
     }
 
     public String toString() {
         return new Gson().toJson(this).toString();
+    }
+
+    public ArrayList<Transaction> getTransactions() {
+        return transactions;
     }
 
     public int getProof() {
