@@ -16,6 +16,14 @@ public class Blockchain {
         newBlock(100, "1");
     }
 
+    public Blockchain(int difficulty) {
+        this.difficulty = difficulty;
+        transactions = new ArrayList<>();
+        chain = new ArrayList<>();
+
+        newBlock(100, "1");
+    }
+
     public void newBlock(int proof, String previousHash) {
         Block block = new Block(chain.size() + 1, System.currentTimeMillis(), transactions, proof, previousHash);
         chain.add(block);
@@ -32,6 +40,16 @@ public class Blockchain {
 
     public ArrayList<Block> getChain() {
         return chain;
+    }
+
+    public int getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(int difficulty) {
+        if (difficulty > 0) {
+            this.difficulty = difficulty;
+        }
     }
 
     public int calculatePoW(int previousProof) {
