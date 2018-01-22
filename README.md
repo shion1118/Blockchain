@@ -71,6 +71,41 @@ No other special installation is required. It is okay if there is an environment
   ```
   The argument `input` gives the block class converted to Json style String type using Gson.
 
+### Proof of Work
+  Proof of Work is a very simple and beautiful idea. It is extremely difficult to find a valid Proof, but it is easy to determine if the requested Proof is valid or not. This is a very important property. When Proof is determined by distributed computing power (mining), the next block is generated.  
+  For details about Proof of Work, please see [here](https://hackernoon.com/learn-blockchains-by-building-one-117428612f46).  
+
+  PoW that using here is very simple. The model expression is as follows.
+  ```
+  000...ab5r = SHA256(Previous proof * x)
+  x is New Proof.
+  ```
+  When multiplied by the value x in the previous Proof, we obtain a value x such that the result obtained by hash value by SHA 256 precedes several 0s (number is Difficulty) at the beginning.  
+  At this time, x is a new Proof.
+
+  ```java
+  public class Blockchain {
+
+  ...
+
+  public int calculatePoW(int previousProof) {
+      int proof = 0;
+      while(!validProof(previousProof, proof)) {
+          proof += 1;
+      }
+      return proof;
+  }
+
+  public boolean validProof(int previousProof, int proof) {
+      String target = new String(new char[difficulty]).replace('\0', '0');
+      String guess = Utils.applySHA256(String.valueOf(previousProof * proof));
+      return guess.substring(0, difficulty).equals(target);
+  }
+}
+```
+`validProof()`, the hash value is obtained by passing the previous Proof and the current Proof as an argument and checking whether Proof is valid.  
+`calculatePoW()` will find a valid Proof from the previous Proof.
+
 ## Author
 **Shion Fukushima** - [Twitter(@shion1118)](https://twitter.com/shion1118)
 
