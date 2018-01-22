@@ -74,5 +74,5 @@ No other special installation is required. It is okay if there is an environment
 ## Author
 **Shion Fukushima** - [Twitter(@shion1118)](https://twitter.com/shion1118)
 
-In virtual currency, blockchain we can not understand its true value, truth. Should we rediscover it or is it naturally appearing?  
-It seems like art.
+In cryptocurrency, blockchain we can not understand its true value, truth. Should we rediscover it or is it naturally appearing?  
+It seems like art. When use technologies like artificial intelligence and blockchains, we fall into a sense of experience the art.
