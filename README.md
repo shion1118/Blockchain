@@ -71,7 +71,7 @@ No other special installation is required. It is okay if there is an environment
   ```
   The argument `input` gives the block class converted to Json style String type using Gson.
 
-### Proof of Work
+## Proof of Work
   Proof of Work is a very simple and beautiful idea. It is extremely difficult to find a valid Proof, but it is easy to determine if the requested Proof is valid or not. This is a very important property. When Proof is determined by distributed computing power (mining), the next block is generated.  
   For details about Proof of Work, please see [here](https://hackernoon.com/learn-blockchains-by-building-one-117428612f46).  
 
