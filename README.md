@@ -1,5 +1,7 @@
 # Basic Blockchain using JAVA
-Basic blockchain using java.
+Basic blockchain using java.  
+
+![About Blockchain](https://i.imgur.com/QW96UFs.png)
 
 ## Installation
 [Gson](https://github.com/google/gson) is necessary.  
